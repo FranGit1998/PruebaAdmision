@@ -1,0 +1,33 @@
+<div class="containder ml-5">
+    <h3 class="ml-3 text-center"><b>Clientes</b></h3>
+
+    <div class="col-md-12">
+        <div class="row">
+            <table class="table table-striped" style="text-align: center;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Acción</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let client of clients | paginate: { itemsPerPage: 4, currentPage: paginaActual }; let i = index">
+                  <tr>
+                    <th scope="row"> {{ i+1 }} </th>
+                    <td>{{ client.nombre }}</td>
+                    <td>{{ client.apellido }}</td>
+                    <td>{{ client.telefono }}</td>
+                    <td>{{ client.direccion }}</td>
+                    <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal" (click)="getPositions(client.id)">Editar</button>
+                    <button type="button" class="btn btn-danger ml-2" (click)="deleteClient(client)">Eliminar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="paginaActual = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+

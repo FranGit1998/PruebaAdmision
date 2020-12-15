@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header bg-dark" style="color: white;">
+        <h3 class="card-title text-center"><b>Registrar cliente</b></h3>
+    </div>
+    <br>
+    <div style="text-align: center;"><b>Por favor, llene los campos.</b></div>
+
+    <div class="card-body">
+        <form (submit)="addClient(newNombre, newApllido, newTelefono, newDireccion)" novalidate #f="ngForm">
+            <div class="form-group">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" #newNombre ngModel required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="apllido" placeholder="Apellido" #newApllido ngModel required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="telefono" placeholder="Telefono" #newTelefono ngModel required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="direccion" placeholder="Dirección" #newDireccion ngModel required>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary btnlg btn-block mt-3" [disabled]="f.invalid">Guardar</button>
+
+        </form>
+    </div>
+
+</div>
